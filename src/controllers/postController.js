@@ -112,7 +112,7 @@ async function createPost(req, res) {
           return res.status(400).json({ error: "No se encontró un parqueadero existente con estas coordenadas." });
         }
 
-        const parqueaderoExistente = await Parqueadero.findOne({ latitud, longitud });
+        const parqueaderoExistente = await Parqueadero.findOne({ title, content, telefono, latitud, longitud });
 
         if (parqueaderoExistente) {
           return res.status(400).json({ error: "Ya existe un parqueadero con estas coordenadas." });
@@ -126,8 +126,8 @@ async function createPost(req, res) {
       tarifaMoto,
       telefono,
       nosotros,
-      longitud,
       latitud,
+      longitud,
       puestos,
     });
 
